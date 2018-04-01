@@ -50,20 +50,17 @@ public class MainTest {
 
 
 
-    public List<String> data() {
+    public String data() {
 
-        return Arrays.asList(
-                "4\n" +
-                        "4578 8 1256 1232 4323 1897 1897 3244 4572 5678\n" +
-                        "1256 2 4578 1897\n" +
-                        "4323 2 9766 9543\n" +
-                        "9766 1 3624\n",
-                getRandString(),
-                getRandString(),
-                getRandString(),
-                getRandString()
-
-        );
+        return "4\n" +
+                "4578 8 1256 1232 4323 1897 1897 3244 4572 5678\n" +
+                "1256 2 4578 1897\n" +
+                "4323 2 9766 9543\n" +
+                "9766 1 3624\n" +
+                getRandString() +
+                getRandString() +
+                getRandString() +
+                getRandString();
     }
 
     @Test
@@ -81,5 +78,13 @@ public class MainTest {
                 "1256 2 4578 1897\n" +
                 "4323 2 9766 9543\n" +
                 "9766 1 3624\n");
+    }
+    @Test
+    public void test2(){
+        Friend.run(data());
+    }
+    @Test
+    public void test3(){
+        FriendPalich.run(data());
     }
 }
