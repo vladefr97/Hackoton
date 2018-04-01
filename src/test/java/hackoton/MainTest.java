@@ -1,10 +1,6 @@
 package hackoton;
 
-import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
-import org.jboss.shrinkwrap.api.ShrinkWrap;
-import org.jboss.shrinkwrap.api.asset.EmptyAsset;
-import org.jboss.shrinkwrap.api.spec.JavaArchive;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -17,18 +13,8 @@ import java.util.Random;
 
 import static org.junit.Assert.*;
 
-@RunWith(value = Parameterized.class)
-public abstract class MainTest {
-    @Deployment
-    public static JavaArchive createDeployment() {
-        return ShrinkWrap.create(JavaArchive.class)
-                .addClass(Main.class)
-                .addAsManifestResource(EmptyAsset.INSTANCE, "beans.xml");
-    }
+public class MainTest {
 
-
-    @Parameterized.Parameter
-    public String testString;
 
 
     String randomID() {
@@ -63,7 +49,7 @@ public abstract class MainTest {
     }
 
 
-    @Parameterized.Parameters
+
     public List<String> data() {
 
         return Arrays.asList(
@@ -82,6 +68,18 @@ public abstract class MainTest {
 
     @Test
     public void test(){
-
+        Friend.run("4\n" +
+                "4578 8 1256 1232 4323 1897 1897 3244 4572 5678\n" +
+                "1256 2 4578 1897\n" +
+                "4323 2 9766 9543\n" +
+                "9766 1 3624\n");
+    }
+    @Test
+    public void test1(){
+        FriendPalich.run("4\n" +
+                "4578 8 1256 1232 4323 1897 1897 3244 4572 5678\n" +
+                "1256 2 4578 1897\n" +
+                "4323 2 9766 9543\n" +
+                "9766 1 3624\n");
     }
 }
