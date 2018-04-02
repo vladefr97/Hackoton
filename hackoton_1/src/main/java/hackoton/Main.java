@@ -28,7 +28,7 @@ public class Main {
                     friendFriends.add(friend);
                 }
             }
-            m = friends.iterator().next();
+            
             for(Integer el: friends )
                 if(friendFriends.contains(el))
                     friendFriends.remove(el);
