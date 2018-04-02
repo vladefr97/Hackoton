@@ -13,7 +13,7 @@ public class Main {
         int n;
         n = in.nextInt();
 
-        Stack<Integer> friends = new Stack<Integer>();
+        TreeSet<Integer> friends = new TreeSet<Integer>();
         TreeSet<Integer> friendFriends = new TreeSet<Integer>();
 
         for(int i=0;i<n;i++)
