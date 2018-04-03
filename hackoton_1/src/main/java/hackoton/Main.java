@@ -8,12 +8,11 @@ import java.util.TreeSet;
 public class Main {
 
     public static void main(String[] args) {
-
         Scanner in = new Scanner(System.in);
         int n;
         n = in.nextInt();
 
-        TreeSet<Integer> friends = new TreeSet<Integer>();
+        Stack<Integer> friends = new Stack<Integer>();
         TreeSet<Integer> friendFriends = new TreeSet<Integer>();
 
         for(int i=0;i<n;i++)
@@ -23,17 +22,14 @@ public class Main {
             for (int j = 0;j<m;j++)
             {
                 int friend = in.nextInt();
-                if(!friends.contains(friend))
-                {
                     friendFriends.add(friend);
-                }
-            }
-            
-            for(Integer el: friends )
-                if(friendFriends.contains(el))
-                    friendFriends.remove(el);
 
+            }
+            m = friends.iterator().next();
         }
+
+        for(Integer el: friends )
+            friendFriends.remove(el);
         System.out.println(friendFriends.size());
     }
 
